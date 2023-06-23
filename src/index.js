@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'resources/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(morgan('common'))
+app.use(morgan('combined'))
 const port = 3000
 
 
@@ -26,6 +26,16 @@ app.get('/', (req, res) => {
 
 app.get('/news', (req, res) => {
   res.render('news')
+})
+
+app.get('/search', (req, res) => {
+  // console.log(req.query.name)
+  res.render('search')
+})
+
+app.post('/search', (req, res) => {
+  // console.log(req.query.name)
+  res.render('search')
 })
 
 app.listen(port, () => {
